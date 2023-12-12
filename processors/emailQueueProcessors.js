@@ -8,7 +8,10 @@ const emailQueueProcessors=  async (job,done)=>{
 //   })
   await sendEmailToUsers({name,email});
   try {
-    done();
+    setTimeout(() => {
+      done();
+    }, 5000);
+   
   } catch (error) {
     console.log(error);
     throw error;

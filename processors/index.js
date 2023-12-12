@@ -12,6 +12,8 @@ const emailQueue = new Queue("emailQueue", {
 emailQueue.process(path.join(__dirname,'emailQueueProcessors.js'));
 
 
-emailQueue.on('completed',(job,result)=>{
+emailQueue.on('completed', async (job,result)=>{
     console.log('completed',job.id);
+
+    await job.remove();
 })
