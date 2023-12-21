@@ -13,7 +13,7 @@ emailQueue.process(path.join(__dirname,'emailQueueProcessors.js'));
 
 
 emailQueue.on('completed', async (job,result)=>{
-    console.log('completed',job.id);
-
+    console.log('completed',job);
     await job.remove();
 })
+
